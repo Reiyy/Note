@@ -552,7 +552,7 @@ if [[ "$loaderMode" == "0" ]]; then
   [[ "$setInterfaceName" == "1" ]] && Add_OPTION="net.ifnames=0 biosdevname=0" || Add_OPTION=""
   [[ "$setIPv6" == "1" ]] && Add_OPTION="$Add_OPTION ipv6.disable=1"
   
-  lowMem || Add_OPTION="$Add_OPTION lowmem=+2"
+  lowMem || Add_OPTION="$Add_OPTION lowmem=+0"
 
   if [[ "$linux_relese" == 'debian' ]] || [[ "$linux_relese" == 'ubuntu' ]]; then
     BOOT_OPTION="auto=true $Add_OPTION hostname=$linux_relese domain=$linux_relese quiet"
@@ -619,7 +619,6 @@ d-i debian-installer/language string en
 d-i console-setup/layoutcode string us
 
 d-i keyboard-configuration/xkb-keymap string us
-d-i lowmem/low note
 
 d-i netcfg/choose_interface select $interfaceSelect
 
